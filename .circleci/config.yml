@@ -1,14 +1,20 @@
 version: 2.1
 jobs:
-  build:
-    docker:
-      - image: cypress/base:latest
-    # working_directory: ~/repo
+  e2e:
+    machine:
+      image: ubuntu-2004:2023.10.1
     steps:
       - checkout
-      - setup_remote_docker
       - run:
-          name: Run Cypress Tests
+          name: Perform end-to-end tests
           command: |
             cd e2e
             docker-compose up --exit-code-from cypress
+      - store_artifacts:
+          path: e2e/cypress/videos
+      - store_artifacts:
+          path: e2e/cypress/screenshots
+workflows:
+  test:
+    jobs:
+      - e2e
