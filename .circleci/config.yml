@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: cypress/base:latest
-    working_directory: ~/repo
+    # working_directory: ~/repo
     steps:
       - checkout
       - setup_remote_docker
