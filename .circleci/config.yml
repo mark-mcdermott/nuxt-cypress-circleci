@@ -8,12 +8,7 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: Prepare Docker Compose
-          command: |
-            mkdir -p /home/circleci/e2e
-            cp -R * /home/circleci/e2e
-      - run:
           name: Run Cypress Tests
           command: |
-            cd /home/circleci/e2e
+            cd /e2e
             docker-compose up --exit-code-from cypress
