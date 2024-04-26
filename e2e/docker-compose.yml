@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  frontend:
+    build: ../frontend
+    ports:
+      - "3000:3000"
+  cypress:
+    image: "cypress/included:13.8.1"
+    environment:
+      - CYPRESS_baseUrl=http://frontend:3000
+    working_dir: /e2e
+    volumes:
+      - ./:/e2e 
+    depends_on:
+      - frontend
