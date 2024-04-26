@@ -1,9 +1,6 @@
 <template>
-  <Tutorial/>
+  <div>
+    <Header />
+    <UserList />
+  </div>
 </template>
-
-<script>
-export default {
-  name: 'IndexPage'
-}
-</script>

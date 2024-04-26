@@ -1,6 +1,8 @@
-describe('template spec', () => {
-  it('passes', () => {
+describe('simple Nuxt app', () => {
+  it('has correct text', () => {
     cy.visit('http://frontend:3000')
-    cy.get('h2').contains('Welcome')
+    cy.get('p').contains('Luke Skywalker')
+    cy.get('p').contains('Leia Organa')
+    cy.get('p').contains('Han Solo')
   })
 })
