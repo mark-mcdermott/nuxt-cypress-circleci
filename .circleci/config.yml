@@ -4,7 +4,7 @@ jobs:
     machine:
       image: ubuntu-2004:2023.10.1
     steps:
-      - checkout
+      - checkout 
       - run:
           name: Perform end-to-end tests
           command: |
