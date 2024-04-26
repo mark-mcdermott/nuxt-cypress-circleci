@@ -5,16 +5,16 @@ jobs:
       image: ubuntu-2004:2023.10.1
     steps:
       - checkout 
-      - run:
-          name: build
-          command: |
-            cd e2e
-            docker-compose build
-      - run:
-          name: Create/Migrate/Seed Database
-          command: |
-            cd e2e
-            docker-compose run --workdir /app/backend backend rails db:create db:migrate db:seed
+      # - run:
+      #     name: build
+      #     command: |
+      #       cd e2e
+      #       docker-compose build
+      # - run:
+      #     name: Create/Migrate/Seed Database
+      #     command: |
+      #       cd e2e
+      #       docker-compose run --workdir /app/backend backend rails db:create db:migrate db:seed
       - run:
           name: Perform end-to-end tests
           command: |
