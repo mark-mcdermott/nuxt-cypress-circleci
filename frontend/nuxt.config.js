@@ -14,6 +14,9 @@ export default {
   buildModules: [],
   modules: ['@nuxtjs/axios'],
   axios: { baseURL: 'http://localhost:3000' },
-  server: { host: '0.0.0.0' }
+  server: { 
+    host: '0.0.0.0',
+    port: 3001 
+  },
   // server: { port: 3001 },
 }

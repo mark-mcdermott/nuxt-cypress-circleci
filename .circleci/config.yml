@@ -6,6 +6,20 @@ jobs:
     steps:
       - checkout 
       - run:
+          name: build
+          command: |
+            cd e2e
+            docker-compose build
+      - run:
+          name: Create/Migrate/Seed Database
+          command: docker-compose run backend rails db:create db:migrate db:seed
+          # command: docker-compose run --workdir /app/backend backend rails db:create db:migrate db:seed
+      - run:
+          name: Perform end-to-end tests
+          command: |
+            cd e2e
+            docker-compose up --exit-code-from cypress
+      - run:
           name: Perform end-to-end tests
           command: |
             cd e2e
